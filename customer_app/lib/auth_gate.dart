@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'auth_service.dart';
+import 'features/menu/menu_list_page.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -13,7 +14,7 @@ class AuthGate extends StatelessWidget {
         if (snap.connectionState == ConnectionState.waiting) {
           return const Scaffold(body: Center(child: CircularProgressIndicator()));
         }
-        return snap.hasData ? const HomePlaceholder() : const LoginPage();
+        return snap.hasData ? const MenuListPage() : const LoginPage();
       },
     );
   }
