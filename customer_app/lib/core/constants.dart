@@ -18,5 +18,29 @@ const int kMinDaysAhead = 2;
 /// Kuota porsi per slot per hari, jika tidak diatur khusus di Firestore.
 const int kDefaultMaxPortions = 100;
 
-/// Status awal pesanan.
+// ---------- Status pesanan ----------
 const String kStatusMenungguPembayaran = 'Menunggu Pembayaran';
+const String kStatusMenungguVerifikasi = 'Menunggu Verifikasi';
+const String kStatusDikonfirmasi = 'Dikonfirmasi';
+const String kStatusDiproses = 'Diproses';
+const String kStatusDikirim = 'Dikirim';
+const String kStatusSelesai = 'Selesai';
+const String kStatusDibatalkan = 'Dibatalkan';
+
+/// Urutan normal status pesanan (Dibatalkan berada di luar alur ini).
+const List<String> kStatusFlow = [
+  kStatusMenungguPembayaran,
+  kStatusMenungguVerifikasi,
+  kStatusDikonfirmasi,
+  kStatusDiproses,
+  kStatusDikirim,
+  kStatusSelesai,
+];
+
+// ---------- Status pembayaran ----------
+const String kPayMenungguVerifikasi = 'Menunggu Verifikasi';
+const String kPayTerverifikasi = 'Terverifikasi';
+const String kPayDitolak = 'Ditolak';
+
+/// Ukuran maksimal foto bukti bayar (setelah dikompres).
+const int kMaxProofBytes = 600 * 1024;

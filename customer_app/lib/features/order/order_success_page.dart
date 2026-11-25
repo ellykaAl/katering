@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/format.dart';
+import 'orders_page.dart';
 
 class OrderSuccessPage extends StatelessWidget {
   final String orderNumber;
@@ -52,7 +53,7 @@ class OrderSuccessPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 const Text(
-                  'Simpan nomor pesananmu. Langkah pembayaran lewat transfer akan ditambahkan di tahap berikutnya.',
+                  'Langkah berikutnya: buka pesananmu, transfer sesuai total, lalu unggah bukti pembayaran.',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.black54),
                 ),
@@ -60,6 +61,16 @@ class OrderSuccessPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: FilledButton(
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const OrdersPage()),
+                    ),
+                    child: const Text('Lihat Pesanan & Bayar'),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
                     onPressed: () =>
                         Navigator.of(context).popUntil((r) => r.isFirst),
                     child: const Text('Kembali ke Menu'),

@@ -4,6 +4,7 @@ import '../../core/format.dart';
 import '../../shared/menu_image.dart';
 import '../cart/cart_button.dart';
 import '../cart/cart_service.dart';
+import '../order/orders_page.dart';
 import 'menu_detail_page.dart';
 import 'menu_model.dart';
 import 'menu_service.dart';
@@ -25,6 +26,13 @@ class _MenuListPageState extends State<MenuListPage> {
       appBar: AppBar(
         title: const Text('Menu Katering'),
         actions: [
+          IconButton(
+            tooltip: 'Pesanan saya',
+            icon: const Icon(Icons.receipt_long_outlined),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const OrdersPage()),
+            ),
+          ),
           const CartButton(),
           IconButton(
             tooltip: 'Keluar',

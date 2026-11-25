@@ -11,3 +11,7 @@ String formatRupiah(int amount) {
 String formatTanggal(DateTime date) {
   return DateFormat('EEEE, d MMMM y', 'id_ID').format(date);
 }
+
+String formatTanggalWaktu(DateTime date) {
+  return DateFormat('d MMM y, HH:mm', 'id_ID').format(date);
+}
