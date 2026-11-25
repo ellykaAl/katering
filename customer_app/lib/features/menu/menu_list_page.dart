@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../auth_service.dart';
 import '../../core/format.dart';
 import '../../shared/menu_image.dart';
+import '../cart/cart_button.dart';
+import '../cart/cart_service.dart';
 import 'menu_detail_page.dart';
 import 'menu_model.dart';
 import 'menu_service.dart';
@@ -23,10 +25,14 @@ class _MenuListPageState extends State<MenuListPage> {
       appBar: AppBar(
         title: const Text('Menu Katering'),
         actions: [
+          const CartButton(),
           IconButton(
             tooltip: 'Keluar',
             icon: const Icon(Icons.logout),
-            onPressed: () => AuthService().logout(),
+            onPressed: () {
+              CartService.instance.clear();
+              AuthService().logout();
+            },
           ),
         ],
       ),

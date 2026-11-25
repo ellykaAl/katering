@@ -7,3 +7,7 @@ String formatRupiah(int amount) {
     decimalDigits: 0,
   ).format(amount);
 }
+
+String formatTanggal(DateTime date) {
+  return DateFormat('EEEE, d MMMM y', 'id_ID').format(date);
+}
