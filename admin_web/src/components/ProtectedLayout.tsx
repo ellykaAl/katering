@@ -7,6 +7,9 @@ import {
   LogOut,
   Menu,
   Settings,
+  Tag,
+  Users,
+  Utensils,
   X,
 } from 'lucide-react'
 import { useAuth } from '../context/useAuth'
@@ -15,6 +18,9 @@ const NAV_ITEMS = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/pesanan', label: 'Pesanan', icon: ClipboardList },
   { to: '/jadwal', label: 'Jadwal Pengiriman', icon: CalendarDays },
+  { to: '/menu', label: 'Menu', icon: Utensils },
+  { to: '/kategori', label: 'Kategori', icon: Tag },
+  { to: '/pelanggan', label: 'Pelanggan', icon: Users },
   { to: '/pengaturan', label: 'Pengaturan', icon: Settings },
 ]
 
@@ -77,7 +83,7 @@ export default function ProtectedLayout() {
           </button>
         </div>
 
-        <nav className="flex-1 space-y-1 px-3">
+        <nav className="flex-1 space-y-1 overflow-y-auto px-3">
           {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.to}
