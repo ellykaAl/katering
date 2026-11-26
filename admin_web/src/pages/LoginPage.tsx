@@ -26,7 +26,7 @@ export default function LoginPage() {
   const [localError, setLocalError] = useState<string | null>(null)
 
   if (!loading && user) {
-    return <Navigate to="/pesanan" replace />
+    return <Navigate to="/dashboard" replace />
   }
 
   async function handleSubmit(e: FormEvent) {

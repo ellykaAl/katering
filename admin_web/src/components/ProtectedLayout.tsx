@@ -1,9 +1,22 @@
 import { useState } from 'react'
 import { Navigate, NavLink, Outlet } from 'react-router-dom'
-import { ClipboardList, LogOut, Menu, X } from 'lucide-react'
+import {
+  CalendarDays,
+  ClipboardList,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  Settings,
+  X,
+} from 'lucide-react'
 import { useAuth } from '../context/useAuth'
 
-const NAV_ITEMS = [{ to: '/pesanan', label: 'Pesanan', icon: ClipboardList }]
+const NAV_ITEMS = [
+  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { to: '/pesanan', label: 'Pesanan', icon: ClipboardList },
+  { to: '/jadwal', label: 'Jadwal Pengiriman', icon: CalendarDays },
+  { to: '/pengaturan', label: 'Pengaturan', icon: Settings },
+]
 
 export default function ProtectedLayout() {
   const { user, adminName, loading, logout } = useAuth()

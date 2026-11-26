@@ -26,6 +26,30 @@ export const CANCELLABLE: string[] = [
   ST_DIKONFIRMASI,
 ]
 
+/** Pesanan yang belum selesai dan belum dibatalkan. */
+export const ACTIVE_STATUSES: string[] = [
+  ST_MENUNGGU_PEMBAYARAN,
+  ST_MENUNGGU_VERIFIKASI,
+  ST_DIKONFIRMASI,
+  ST_DIPROSES,
+  ST_DIKIRIM,
+]
+
+/** Pesanan yang pembayarannya sudah diverifikasi (dihitung sebagai pendapatan). */
+export const REVENUE_STATUSES: string[] = [
+  ST_DIKONFIRMASI,
+  ST_DIPROSES,
+  ST_DIKIRIM,
+  ST_SELESAI,
+]
+
+/** Pesanan yang sudah pasti dan tinggal dikerjakan atau dikirim. */
+export const UPCOMING_STATUSES: string[] = [
+  ST_DIKONFIRMASI,
+  ST_DIPROSES,
+  ST_DIKIRIM,
+]
+
 /** Langkah berikutnya yang dilakukan admin lewat tombol satu klik. */
 export const NEXT_STATUS: Record<string, string | undefined> = {
   [ST_DIKONFIRMASI]: ST_DIPROSES,
@@ -43,3 +67,20 @@ export const NEXT_LABEL: Record<string, string | undefined> = {
 export const PAY_MENUNGGU = 'Menunggu Verifikasi'
 export const PAY_TERVERIFIKASI = 'Terverifikasi'
 export const PAY_DITOLAK = 'Ditolak'
+
+// ---------- Slot pengiriman ----------
+// PENTING: harus sama dengan kDeliverySlots di aplikasi pelanggan
+// (customer_app/lib/core/constants.dart).
+export interface DeliverySlot {
+  id: string
+  label: string
+}
+
+export const DELIVERY_SLOTS: DeliverySlot[] = [
+  { id: 's1', label: '08.00 - 10.00' },
+  { id: 's2', label: '10.00 - 12.00' },
+  { id: 's3', label: '12.00 - 14.00' },
+]
+
+/** Kuota porsi per slot per hari bila belum diatur khusus. */
+export const DEFAULT_MAX_PORTIONS = 100
