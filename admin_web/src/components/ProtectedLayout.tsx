@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Navigate, NavLink, Outlet } from 'react-router-dom'
 import {
   CalendarDays,
@@ -13,6 +13,7 @@ import {
   X,
 } from 'lucide-react'
 import { useAuth } from '../context/useAuth'
+import ChatNavLink from './ChatNavLink'
 
 const NAV_ITEMS = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -85,21 +86,27 @@ export default function ProtectedLayout() {
 
         <nav className="flex-1 space-y-1 overflow-y-auto px-3">
           {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'bg-sage-100 text-sage-700'
-                    : 'text-stone-600 hover:bg-stone-100'
-                }`
-              }
-            >
-              <item.icon size={18} />
-              {item.label}
-            </NavLink>
+            <Fragment key={item.to}>
+              <NavLink
+                to={item.to}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-sage-100 text-sage-700'
+                      : 'text-stone-600 hover:bg-stone-100'
+                  }`
+                }
+              >
+                <item.icon size={18} />
+                {item.label}
+              </NavLink>
+
+              {/* Chat ditempatkan tepat setelah Pesanan */}
+              {item.to === '/pesanan' && (
+                <ChatNavLink onNavigate={() => setOpen(false)} />
+              )}
+            </Fragment>
           ))}
         </nav>
 

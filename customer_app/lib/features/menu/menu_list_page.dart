@@ -4,6 +4,7 @@ import '../../core/format.dart';
 import '../../shared/menu_image.dart';
 import '../cart/cart_button.dart';
 import '../cart/cart_service.dart';
+import '../chat/chat_button.dart';
 import '../order/orders_page.dart';
 import 'menu_detail_page.dart';
 import 'menu_model.dart';
@@ -33,6 +34,7 @@ class _MenuListPageState extends State<MenuListPage> {
               MaterialPageRoute(builder: (_) => const OrdersPage()),
             ),
           ),
+          const ChatButton(),
           const CartButton(),
           IconButton(
             tooltip: 'Keluar',

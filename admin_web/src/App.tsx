@@ -9,6 +9,7 @@ import SchedulePage from './pages/SchedulePage'
 import MenusPage from './pages/MenusPage'
 import CategoriesPage from './pages/CategoriesPage'
 import CustomersPage from './pages/CustomersPage'
+import ChatPage from './pages/ChatPage'
 import SettingsPage from './pages/SettingsPage'
 
 export default function App() {
@@ -25,6 +26,8 @@ export default function App() {
             <Route path="/menu" element={<MenusPage />} />
             <Route path="/kategori" element={<CategoriesPage />} />
             <Route path="/pelanggan" element={<CustomersPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/chat/:chatId" element={<ChatPage />} />
             <Route path="/pengaturan" element={<SettingsPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
